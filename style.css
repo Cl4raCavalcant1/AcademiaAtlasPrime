@@ -1,63 +1,586 @@
-/* ========================= */
-.hero {
-height: 100vh;
-background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48') center/cover;
-display: flex;
-align-items: center;
-padding: 60px;
-}
 
+        /* ========================= */
+        /* VARIÁVEIS & RESET GERAL */
+        /* ========================= */
+        :root {
+            --yellow: #EDF228;
+            --black: #0a0a0a;
+            --dark-gray: #1a1a1a;
+            --light-gray: #2a2a2a;
+            --white: #ffffff;
+            --font-display: 'Bebas Neue', sans-serif;
+            --font-body: 'Archivo', sans-serif;
+            --font-accent: 'Anton', sans-serif;
+        }
 
-.hero h1 { font-family: 'Bebas Neue'; font-size: 80px; line-height: 1; }
-.hero h1 span { font-size: 120px; color: var(--yellow); }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+        }
 
-.btn-primary {
-margin-top: 30px;
-font-family: 'Bebas Neue';
-font-size: 40px;
-background: var(--yellow);
-border: none;
-padding: 16px 40px;
-border-radius: 40px;
-}
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
 
+        /* Utilitários */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .text-yellow { color: var(--yellow); }
+        
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 60px;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--white);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
 
-.highlight-bar {
-background: var(--yellow);
-color: var(--black);
-text-align: center;
-font-family: 'Anton';
-font-size: 60px;
-padding: 20px;
-}
+        /* ========================= */
+        /* HEADER */
+        /* ========================= */
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 60px;
+            z-index: 10;
+        }
 
+        .logo {
+            font-family: var(--font-accent);
+            font-size: 32px;
+            letter-spacing: 1px;
+        }
 
-.section-title {
-font-family: 'Bebas Neue';
-font-size: 60px;
-text-align: center;
-margin-bottom: 50px;
-}
+        .logo-atlas { color: var(--white); }
+        .logo-prime { color: var(--yellow); }
 
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
 
-.carousel {
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 20px;
-}
+        .nav a {
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            text-transform: uppercase;
+        }
 
+        .nav a:hover {
+            color: var(--yellow);
+        }
 
-.carousel-track img {
-width: 380px;
-border-radius: 30px;
-opacity: .4;
-transition: .4s;
-}
+        .menu-toggle {
+            display: none;
+            color: var(--white);
+            font-size: 28px;
+            cursor: pointer;
+        }
 
+        /* ========================= */
+        /* HERO SECTION */
+        /* ========================= */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            padding: 0 60px;
+            position: relative;
+        }
 
-.carousel-track img.active {
-opacity: 1;
-transform: scale(1.1);
-}
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: 100px;
+            line-height: 0.9;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 span {
+            font-size: 140px;
+            color: var(--yellow);
+            display: block;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            margin-top: 30px;
+            font-family: var(--font-display);
+            font-size: 24px;
+            background: var(--yellow);
+            color: var(--black);
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            background-color: #fff;
+        }
+
+        /* ========================= */
+        /* HIGHLIGHT BAR */
+        /* ========================= */
+        .highlight-bar {
+            background: var(--yellow);
+            color: var(--black);
+            text-align: center;
+            font-family: var(--font-accent);
+            font-size: 40px;
+            padding: 25px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* ========================= */
+        /* TREINOS (CAROUSEL) */
+        /* ========================= */
+        .treinos {
+            padding: 100px 20px;
+            background-color: var(--dark-gray);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-btn {
+            background: transparent;
+            border: 2px solid var(--yellow);
+            color: var(--yellow);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transition: 0.3s;
+            z-index: 5;
+            position: absolute;
+        }
+        
+        .carousel-btn:hover {
+            background: var(--yellow);
+            color: var(--black);
+        }
+
+        .carousel-btn.prev { left: 0; }
+        .carousel-btn.next { right: 0; }
+
+        .carousel-track {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 500px;
+            position: relative;
+        }
+
+        .carousel-track img {
+            width: 300px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            opacity: 0.3;
+            transition: all 0.5s ease-in-out;
+            transform: scale(0.9);
+            filter: grayscale(100%);
+            position: absolute;
+        }
+
+        .carousel-track img.active {
+            opacity: 1;
+            transform: scale(1.15);
+            z-index: 3;
+            filter: grayscale(0%);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        /* ========================= */
+        /* EQUIPE (PERSONAL) */
+        /* ========================= */
+        .team {
+            padding: 100px 0;
+            background-color: var(--black);
+        }
+        
+        .team-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .team-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .team-image img {
+            width: 100%;
+            border-radius: 20px;
+            filter: grayscale(100%);
+            transition: 0.3s;
+        }
+
+        .team-image img:hover {
+            filter: grayscale(0%);
+        }
+
+        .team-info {
+            flex: 1;
+        }
+
+        .team-info h2 {
+            font-family: var(--font-display);
+            font-size: 50px;
+            margin-bottom: 30px;
+            line-height: 1;
+        }
+
+        .team-list {
+            list-style: none;
+        }
+
+        .team-list li {
+            font-size: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .team-list i {
+            color: var(--yellow);
+            font-size: 24px;
+        }
+
+        /* ========================= */
+        /* PLANOS */
+        /* ========================= */
+        .plans {
+            padding: 100px 20px;
+            background-color: var(--dark-gray);
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .plan-card {
+            background: var(--light-gray);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s;
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Destaque PRIME */
+        .plan-card.prime {
+            border-color: var(--yellow);
+            background: #222;
+        }
+
+        .best-seller {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--yellow);
+            color: var(--black);
+            padding: 5px 20px;
+            font-family: var(--font-accent);
+            text-transform: uppercase;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .plan-name {
+            font-family: var(--font-display);
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .plan-price {
+            font-family: var(--font-accent);
+            font-size: 36px;
+            color: var(--yellow);
+            margin-bottom: 30px;
+        }
+        
+        .plan-price small {
+            font-size: 16px;
+            color: #fff;
+            font-family: var(--font-body);
+        }
+
+        .plan-features {
+            text-align: left;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        .plan-features li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 16px;
+            color: #ccc;
+        }
+
+        .plan-features i {
+            color: var(--yellow);
+            margin-top: 3px;
+        }
+
+        .btn-plan {
+            width: 100%;
+            padding: 15px;
+            background: transparent;
+            border: 2px solid var(--yellow);
+            color: var(--white);
+            font-family: var(--font-display);
+            font-size: 24px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+            border-radius: 10px;
+        }
+
+        .plan-card.prime .btn-plan,
+        .btn-plan:hover {
+            background: var(--yellow);
+            color: var(--black);
+        }
+
+        /* ========================= */
+        /* DIFERENCIAIS */
+        /* ========================= */
+        .differentials {
+            background: var(--yellow);
+            color: var(--black);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .differentials h2 {
+            font-family: var(--font-accent);
+            font-size: 50px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        .differentials-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .differential-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            width: 150px;
+        }
+
+        .differential-icon {
+            font-size: 40px;
+            background: var(--black);
+            color: var(--yellow);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .differential-text {
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 1.2;
+        }
+
+        /* ========================= */
+        /* DEPOIMENTOS */
+        /* ========================= */
+        .testimonials {
+            padding: 100px 20px;
+            background-color: var(--black);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--dark-gray);
+            padding: 30px;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .stars {
+            color: var(--yellow);
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #ddd;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-info h4 {
+            font-weight: bold;
+            color: var(--white);
+        }
+
+        .author-info span {
+            font-size: 14px;
+            color: var(--yellow);
+        }
+
+        /* ========================= */
+        /* LOCALIZAÇÃO (FOOTER AREA) */
+        /* ========================= */
+        .location {
+            padding: 80px 20px;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2074&auto=format&fit=crop') center/cover;
+            text-align: center;
+        }
+
+        .search-box {
+            background: var(--white);
+            padding: 10px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            width: 100%;
+            max-width: 500px;
+            margin-top: 20px;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            padding: 10px 20px;
+            flex-grow: 1;
+            font-size: 18px;
+            font-family: var(--font-body);
+        }
+
+        .search-box button {
+            background: var(--yellow);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        footer {
+            background: var(--black);
+            padding: 30px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 768px) {
+            .header { padding: 20px; }
+            .nav { display: none; }
+            .menu-toggle { display: block; }
+            
+            .hero { padding: 0 20px; justify-content: center; text-align: center; }
+            .hero h1 { font-size: 60px; }
+            .hero h1 span { font-size: 80px; }
+            
+            .team-content { flex-direction: column; }
+            .team-image { order: -1; }
+            
+            .differentials-grid { gap: 30px; }
+            .differential-item { width: 45%; }
+            
+            .section-title { font-size: 40px; }
+        }
+    

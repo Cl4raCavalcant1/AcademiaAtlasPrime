@@ -1,65 +1,227 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Atlas Prime</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atlas Prime</title>
 
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Anton&family=Archivo:wght@400;600&family=Anek+Latin:wght@300;400;600&family=Anek+Malayalam:wght@400&family=Gabarito:wght@400;700&family=Caesar+Dressing&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Anton&family=Archivo:wght@400;600&family=Anek+Latin:wght@300;400;600&family=Anek+Malayalam:wght@400&family=Gabarito:wght@400;700&family=Caesar+Dressing&display=swap" rel="stylesheet">
-
-
-<link rel="stylesheet" href="style.css" />
-</head>
 <body>
 
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo">
+            <span class="logo-atlas">ATLAS</span>
+            <span class="logo-prime">PRIME</span>
+        </div>
+        <nav class="nav">
+            <a href="#">INÍCIO</a>
+            <a href="#sobre">SOBRE NÓS</a>
+            <a href="#planos">PLANOS</a>
+            <a href="#parceiros">PARCEIROS</a>
+        </nav>
+        <div class="menu-toggle">
+            <i class="ph ph-list"></i>
+        </div>
+    </header>
 
-<!-- HEADER -->
-<header class="header">
-<div class="logo">
-<span class="logo-atlas">ATLAS</span>
-<span class="logo-prime">PRIME</span>
-</div>
-<nav class="nav">
-<a href="#">INÍCIO</a>
-<a href="#">SOBRE NÓS</a>
-<a href="#">PLANOS</a>
-<a href="#">PARCEIROS</a>
-</nav>
-</header>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                COMPROMISSO COM<br>
+                A SUA MELHOR<br>
+                <span>VERSÃO</span>
+            </h1>
+            <button class="btn-primary" onclick="document.getElementById('planos').scrollIntoView()">QUERO ME MATRICULAR</button>
+        </div>
+    </section>
 
+    <!-- BARRA DESTAQUE -->
+    <div class="highlight-bar">+100 UNIDADES EM TODO BRASIL</div>
 
-<!-- HERO -->
-<section class="hero">
-<div class="hero-content">
-<h1>
-COMPROMISSO COM<br>
-A SUA MELHOR<br>
-<span>VERSÃO</span>
-</h1>
-<button class="btn-primary">QUERO ME MATRICULAR</button>
-</div>
-</section>
+    <!-- TREINOS (CAROUSEL) -->
+    <section class="treinos">
+        <h2 class="section-title">NOSSOS TREINOS SÃO COMPLETOS</h2>
 
+        <div class="carousel-container">
+            <button class="carousel-btn prev"><i class="ph ph-caret-left"></i></button>
 
-<!-- BAR -->
-<div class="highlight-bar">+100 UNIDADES EM TODO BRASIL</div>
+            <div class="carousel-track">
+                <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=1000&auto=format&fit=crop" alt="Treino Funcional" class="slide" />
+                <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1000&auto=format&fit=crop" alt="Musculação" class="slide active" />
+                <img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?q=80&w=1000&auto=format&fit=crop" alt="Cardio" class="slide" />
+                <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=1000&auto=format&fit=crop" alt="Crossfit" class="slide" />
+                <img src="https://images.unsplash.com/photo-1574680096141-1cddd32e01f5?q=80&w=1000&auto=format&fit=crop" alt="Boxe" class="slide" />
+            </div>
 
+            <button class="carousel-btn next"><i class="ph ph-caret-right"></i></button>
+        </div>
+    </section>
 
-<!-- TREINOS -->
-<section class="treinos">
-<h2 class="section-title">NOSSOS TREINOS SÃO COMPLETOS</h2>
+    <!-- EQUIPE (NOVO) -->
+    <section class="team" id="sobre">
+        <div class="team-content">
+            <div class="team-info">
+                <h2>CONHEÇA A NOSSA<br><span class="text-yellow">EQUIPE DE PERSONAL</span></h2>
+                <ul class="team-list">
+                    <li><i class="ph ph-check-circle"></i> Profissionais qualificados</li>
+                    <li><i class="ph ph-check-circle"></i> Certificação Internacional</li>
+                    <li><i class="ph ph-check-circle"></i> Acompanhamento personalizado</li>
+                    <li><i class="ph ph-check-circle"></i> Segurança e eficiência nos treinos</li>
+                </ul>
+                <button class="btn-primary" style="font-size: 20px; padding: 10px 30px;">Agendar Avaliação</button>
+            </div>
+            <div class="team-image">
+                <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2070&auto=format&fit=crop" alt="Equipe de Personal Trainers">
+            </div>
+        </div>
+    </section>
 
+    <!-- PLANOS (NOVO) -->
+    <section class="plans" id="planos">
+        <h2 class="section-title">NOSSOS PLANOS</h2>
+        
+        <div class="plans-grid">
+            <!-- Plano Start -->
+            <div class="plan-card">
+                <h3 class="plan-name">ATLAS START</h3>
+                <div class="plan-price">R$ 69,90 <small>/mês</small></div>
+                <ul class="plan-features">
+                    <li><i class="ph ph-check"></i> Musculação e cardio</li>
+                    <li><i class="ph ph-check"></i> Acesso a uma unidade</li>
+                    <li><i class="ph ph-check"></i> Treino personalizado</li>
+                    <li><i class="ph ph-check"></i> Sem taxa de cancelamento</li>
+                </ul>
+                <button class="btn-plan">EU QUERO</button>
+            </div>
 
-<div class="carousel">
-<button class="carousel-btn prev">‹</button>
+            <!-- Plano Prime -->
+            <div class="plan-card prime">
+                <div class="best-seller">Mais Vendido</div>
+                <h3 class="plan-name text-yellow">ATLAS PRIME</h3>
+                <div class="plan-price">R$ 99,90 <small>/mês</small></div>
+                <ul class="plan-features">
+                    <li><i class="ph ph-check"></i> <strong>Tudo do Start +</strong></li>
+                    <li><i class="ph ph-check"></i> Aulas coletivas (Dança, Luta, Yoga)</li>
+                    <li><i class="ph ph-check"></i> Cadeira de massagem</li>
+                    <li><i class="ph ph-check"></i> Acesso a TODAS as unidades</li>
+                    <li><i class="ph ph-check"></i> 3 avaliações por mês</li>
+                </ul>
+                <button class="btn-plan">EU QUERO</button>
+            </div>
 
+            <!-- Plano Black -->
+            <div class="plan-card">
+                <h3 class="plan-name" style="color:#ccc">ATLAS BLACK</h3>
+                <div class="plan-price" style="color:#ccc">R$ 149,90 <small>/mês</small></div>
+                <ul class="plan-features">
+                    <li><i class="ph ph-check"></i> <strong>Tudo do Prime +</strong></li>
+                    <li><i class="ph ph-check"></i> Avaliação física mensal inclusa</li>
+                    <li><i class="ph ph-check"></i> Camiseta exclusiva Atlas Prime</li>
+                    <li><i class="ph ph-check"></i> Kit boas-vindas</li>
+                    <li><i class="ph ph-check"></i> Consultoria nutricional (App)</li>
+                </ul>
+                <button class="btn-plan" style="border-color: #ccc; color: #ccc;">EU QUERO</button>
+            </div>
+        </div>
+    </section>
 
-<div class="carousel-track">
-<img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e" alt="Treino 1" />
-<img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438" alt="Treino 2" />
-<img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712" alt="Treino 3" />
-</div>
+    <!-- DIFERENCIAIS (NOVO) -->
+    <section class="differentials">
+        <h2>NOSSO DIFERENCIAL</h2>
+        <div class="differentials-grid">
+            <div class="differential-item">
+                <div class="differential-icon"><i class="ph ph-car"></i></div>
+                <span class="differential-text">Estacionamento Grátis</span>
+            </div>
+            <div class="differential-item">
+                <div class="differential-icon"><i class="ph ph-shower"></i></div>
+                <span class="differential-text">Vestiários com Chuveiro</span>
+            </div>
+            <div class="differential-item">
+                <div class="differential-icon"><i class="ph ph-clock"></i></div>
+                <span class="differential-text">Aberto 24h</span>
+            </div>
+            <div class="differential-item">
+                <div class="differential-icon"><i class="ph ph-scales"></i></div>
+                <span class="differential-text">Bioimpedância</span>
+            </div>
+            <div class="differential-item">
+                <div class="differential-icon"><i class="ph ph-barbell"></i></div>
+                <span class="differential-text">Equipamentos Importados</span>
+            </div>
+            <div class="differential-item">
+                <div class="differential-icon"><i class="ph ph-coffee"></i></div>
+                <span class="differential-text">Fit Bar / Lounge</span>
+            </div>
+        </div>
+    </section>
 
+    <!-- DEPOIMENTOS (NOVO) -->
+    <section class="testimonials" id="parceiros">
+        <h2 class="section-title">DEPOIMENTOS DE ALUNOS</h2>
+        <div class="testimonials-grid">
+            <!-- Depoimento 1 -->
+            <div class="testimonial-card">
+                <div class="stars">
+                    <i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i>
+                </div>
+                <p class="quote">"Comecei a treinar por recomendação médica e hoje não vivo sem. A equipe da Atlas transformou minha saúde e minha disposição!"</p>
+                <div class="author">
+                    <div class="author-info">
+                        <h4>Maria do Carmo</h4>
+                        <span>Aposentada</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Depoimento 2 -->
+            <div class="testimonial-card">
+                <div class="stars">
+                    <i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i>
+                </div>
+                <p class="quote">"O ambiente é incrível e super acolhedor. Consegui resultados que nunca tive em outras academias. Minha autoestima está lá em cima!"</p>
+                <div class="author">
+                    <div class="author-info">
+                        <h4>Mariana S.</h4>
+                        <span>Estudante</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Depoimento 3 -->
+            <div class="testimonial-card">
+                <div class="stars">
+                    <i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i>
+                </div>
+                <p class="quote">"Estrutura de ponta e equipamentos que aguentam treino pesado de verdade. Aqui o treino é sério e os resultados vêm!"</p>
+                <div class="author">
+                    <div class="author-info">
+                        <h4>Ricardo "Nick"</h4>
+                        <span>Atleta</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- LOCALIZAÇÃO (NOVO) -->
+    <section class="location">
+        <h2 class="section-title" style="margin-bottom: 20px;">ENCONTRE A ATLAS MAIS PRÓXIMA!</h2>
+        <p style="font-size: 20px;">Digite seu CEP e comece a treinar hoje mesmo.</p>
+        
+        <div class="search-box">
+            <input type="text" placeholder="Digite seu CEP..." />
+            <button><i class="ph ph-magnifying-glass"></i></button>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Atlas Prime - Todos os direitos reservados.</p>
+    </footer>
+</body>
 </html>
