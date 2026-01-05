@@ -11,10 +11,21 @@
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
+    <!-- Link para o CSS externo -->
+    <link rel="stylesheet" href="style.css" />
+</head>
 <body>
 
+    <!-- MENU MOBILE OVERLAY -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <a href="#" onclick="toggleMenu()">INÍCIO</a>
+        <a href="#sobre" onclick="toggleMenu()">SOBRE NÓS</a>
+        <a href="#planos" onclick="toggleMenu()">PLANOS</a>
+        <a href="#parceiros" onclick="toggleMenu()">PARCEIROS</a>
+    </div>
+
     <!-- HEADER -->
-    <header class="header">
+    <header class="header" id="header">
         <div class="logo">
             <span class="logo-atlas">ATLAS</span>
             <span class="logo-prime">PRIME</span>
@@ -25,28 +36,28 @@
             <a href="#planos">PLANOS</a>
             <a href="#parceiros">PARCEIROS</a>
         </nav>
-        <div class="menu-toggle">
+        <div class="menu-toggle" onclick="toggleMenu()">
             <i class="ph ph-list"></i>
         </div>
     </header>
 
     <!-- HERO -->
     <section class="hero">
-        <div class="hero-content">
+        <div class="hero-content reveal">
             <h1>
                 COMPROMISSO COM<br>
                 A SUA MELHOR<br>
                 <span>VERSÃO</span>
             </h1>
-            <button class="btn-primary" onclick="document.getElementById('planos').scrollIntoView()">QUERO ME MATRICULAR</button>
+            <button class="btn-primary" onclick="scrollToPlans()">QUERO ME MATRICULAR</button>
         </div>
     </section>
 
     <!-- BARRA DESTAQUE -->
-    <div class="highlight-bar">+100 UNIDADES EM TODO BRASIL</div>
+    <div class="highlight-bar reveal">+100 UNIDADES EM TODO BRASIL</div>
 
     <!-- TREINOS (CAROUSEL) -->
-    <section class="treinos">
+    <section class="treinos reveal">
         <h2 class="section-title">NOSSOS TREINOS SÃO COMPLETOS</h2>
 
         <div class="carousel-container">
@@ -64,8 +75,8 @@
         </div>
     </section>
 
-    <!-- EQUIPE (NOVO) -->
-    <section class="team" id="sobre">
+    <!-- EQUIPE -->
+    <section class="team reveal" id="sobre">
         <div class="team-content">
             <div class="team-info">
                 <h2>CONHEÇA A NOSSA<br><span class="text-yellow">EQUIPE DE PERSONAL</span></h2>
@@ -83,8 +94,8 @@
         </div>
     </section>
 
-    <!-- PLANOS (NOVO) -->
-    <section class="plans" id="planos">
+    <!-- PLANOS -->
+    <section class="plans reveal" id="planos">
         <h2 class="section-title">NOSSOS PLANOS</h2>
         
         <div class="plans-grid">
@@ -132,8 +143,8 @@
         </div>
     </section>
 
-    <!-- DIFERENCIAIS (NOVO) -->
-    <section class="differentials">
+    <!-- DIFERENCIAIS -->
+    <section class="differentials reveal">
         <h2>NOSSO DIFERENCIAL</h2>
         <div class="differentials-grid">
             <div class="differential-item">
@@ -163,8 +174,8 @@
         </div>
     </section>
 
-    <!-- DEPOIMENTOS (NOVO) -->
-    <section class="testimonials" id="parceiros">
+    <!-- DEPOIMENTOS -->
+    <section class="testimonials reveal" id="parceiros">
         <h2 class="section-title">DEPOIMENTOS DE ALUNOS</h2>
         <div class="testimonials-grid">
             <!-- Depoimento 1 -->
@@ -209,8 +220,8 @@
         </div>
     </section>
 
-    <!-- LOCALIZAÇÃO (NOVO) -->
-    <section class="location">
+    <!-- LOCALIZAÇÃO -->
+    <section class="location reveal">
         <h2 class="section-title" style="margin-bottom: 20px;">ENCONTRE A ATLAS MAIS PRÓXIMA!</h2>
         <p style="font-size: 20px;">Digite seu CEP e comece a treinar hoje mesmo.</p>
         
@@ -221,7 +232,111 @@
     </section>
 
     <footer>
+        <div class="social-links">
+            <a href="#"><i class="ph ph-instagram-logo"></i></a>
+            <a href="#"><i class="ph ph-facebook-logo"></i></a>
+            <a href="#"><i class="ph ph-youtube-logo"></i></a>
+            <a href="#"><i class="ph ph-whatsapp-logo"></i></a>
+        </div>
         <p>© 2024 Atlas Prime - Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        /* ========================= */
+        /* JS GERAL DO SITE */
+        /* ========================= */
+
+        // 1. MENU MOBILE
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('open');
+        }
+
+        // 2. HEADER STICKY (Fixo ao rolar)
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // 3. ANIMAÇÃO DE SCROLL (REVEAL)
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // Ativar no carregamento inicial também
+        reveal();
+
+        // 4. SCROLL SUAVE PARA BOTÕES
+        function scrollToPlans() {
+            document.getElementById('planos').scrollIntoView();
+        }
+
+        // 5. CARROSSEL (Lógica anterior mantida)
+        const images = document.querySelectorAll('.carousel-track img');
+        const nextBtn = document.querySelector('.next');
+        const prevBtn = document.querySelector('.prev');
+        let current = 1; 
+
+        function updateCarousel() {
+            images.forEach(img => {
+                img.classList.remove('active');
+                img.style.display = 'none'; 
+            });
+
+            const total = images.length;
+            const prevIndex = (current - 1 + total) % total;
+            const nextIndex = (current + 1) % total;
+
+            // Anterior
+            images[prevIndex].style.display = 'block';
+            images[prevIndex].style.transform = 'scale(0.8) translateX(-120%)';
+            images[prevIndex].style.opacity = '0.4';
+            images[prevIndex].style.zIndex = '1';
+
+            // Atual
+            images[current].style.display = 'block';
+            images[current].classList.add('active');
+            images[current].style.transform = 'scale(1.1) translateX(0)';
+            images[current].style.opacity = '1';
+            images[current].style.zIndex = '2';
+
+            // Próximo
+            images[nextIndex].style.display = 'block';
+            images[nextIndex].style.transform = 'scale(0.8) translateX(120%)';
+            images[nextIndex].style.opacity = '0.4';
+            images[nextIndex].style.zIndex = '1';
+        }
+
+        updateCarousel();
+
+        nextBtn.onclick = () => {
+            current = (current + 1) % images.length;
+            updateCarousel();
+        };
+
+        prevBtn.onclick = () => {
+            current = (current - 1 + images.length) % images.length;
+            updateCarousel();
+        };
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') prevBtn.click();
+            if (e.key === 'ArrowRight') nextBtn.click();
+        });
+    </script>
 </body>
 </html>
