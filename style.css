@@ -110,7 +110,6 @@ ul { list-style: none; }
     color: var(--yellow);
 }
 
-/* Underline effect no menu */
 .nav a::after {
     content: '';
     position: absolute;
@@ -193,9 +192,15 @@ ul { list-style: none; }
     display: block;
 }
 
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
 .btn-primary {
     display: inline-block;
-    margin-top: 30px;
     font-family: var(--font-display);
     font-size: 24px;
     background: var(--yellow);
@@ -213,6 +218,27 @@ ul { list-style: none; }
 .btn-primary:hover {
     transform: scale(1.05);
     background-color: #fff;
+}
+
+.btn-secondary {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 24px;
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+    padding: 15px 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.btn-secondary:hover {
+    background: var(--white);
+    color: var(--black);
 }
 
 /* ========================= */
@@ -304,11 +330,63 @@ ul { list-style: none; }
 }
 
 /* ========================= */
+/* SCHEDULE (QUADRO DE HORÁRIOS) */
+/* ========================= */
+.schedule {
+    padding: 80px 20px;
+    background-color: var(--black);
+}
+
+.table-container {
+    overflow-x: auto;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #333;
+}
+
+th {
+    background-color: var(--yellow);
+    color: var(--black);
+    font-family: var(--font-accent);
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+td {
+    color: #ccc;
+    font-size: 16px;
+}
+
+td.time {
+    color: var(--yellow);
+    font-weight: bold;
+    font-family: var(--font-accent);
+    font-size: 20px;
+    background-color: #111;
+}
+
+tr:hover td {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+/* ========================= */
 /* EQUIPE (PERSONAL) */
 /* ========================= */
 .team {
     padding: 100px 0;
-    background-color: var(--black);
+    background-color: var(--dark-gray);
 }
 
 .team-content {
@@ -369,7 +447,7 @@ ul { list-style: none; }
 /* ========================= */
 .plans {
     padding: 100px 20px;
-    background-color: var(--dark-gray);
+    background-color: var(--black);
 }
 
 .plans-grid {
@@ -396,7 +474,6 @@ ul { list-style: none; }
     transform: translateY(-10px);
 }
 
-/* Destaque PRIME */
 .plan-card.prime {
     border-color: var(--yellow);
     background: #222;
@@ -473,6 +550,88 @@ ul { list-style: none; }
 .btn-plan:hover {
     background: var(--yellow);
     color: var(--black);
+}
+
+/* ========================= */
+/* CALCULADORA IMC */
+/* ========================= */
+.imc-section {
+    padding: 100px 20px;
+    background: var(--dark-gray);
+}
+
+.imc-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.imc-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.imc-text h2 {
+    font-family: var(--font-display);
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.imc-calculator {
+    flex: 1;
+    min-width: 300px;
+    background: #222;
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid #333;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--yellow);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px;
+    background: #111;
+    border: 1px solid #444;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--yellow);
+}
+
+.imc-result {
+    margin-top: 20px;
+    padding: 20px;
+    background: #111;
+    border-radius: 10px;
+    text-align: center;
+    display: none;
+}
+
+.imc-result.visible {
+    display: block;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* ========================= */
@@ -575,20 +734,9 @@ ul { list-style: none; }
     line-height: 1.6;
 }
 
-.author {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
 .author-info h4 {
     font-weight: bold;
     color: var(--white);
-}
-
-.author-info span {
-    font-size: 14px;
-    color: var(--yellow);
 }
 
 /* ========================= */
@@ -659,6 +807,101 @@ footer {
     color: var(--yellow);
 }
 
+/* ========================= */
+/* FLUTUANTES E MODAIS */
+/* ========================= */
+
+/* WhatsApp Float */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #25d366;
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    z-index: 200;
+    transition: transform 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+/* Modal Aula Experimental */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 500;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: #222;
+    margin: 10% auto;
+    padding: 40px;
+    border: 1px solid var(--yellow);
+    width: 90%;
+    max-width: 500px;
+    border-radius: 20px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.modal-content h2 {
+    font-family: var(--font-display);
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.modal-content p {
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    background: #111;
+    border: 1px solid #444;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.modal-content input:focus {
+    outline: none;
+    border-color: var(--yellow);
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #aaa;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-modal:hover {
+    color: var(--yellow);
+}
+
 /* RESPONSIVIDADE */
 @media (max-width: 768px) {
     .header { padding: 20px; }
@@ -669,6 +912,8 @@ footer {
     .hero h1 { font-size: 60px; }
     .hero h1 span { font-size: 80px; }
     
+    .hero-buttons { justify-content: center; }
+    
     .team-content { flex-direction: column; }
     .team-image { order: -1; }
     
@@ -676,4 +921,7 @@ footer {
     .differential-item { width: 45%; }
     
     .section-title { font-size: 40px; }
+    
+    .imc-content { flex-direction: column; text-align: center; }
+    .imc-calculator { width: 100%; }
 }

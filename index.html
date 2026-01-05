@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Atlas Prime</title>
+    <title>Atlas Prime - A Sua Academia</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Anton&family=Archivo:wght@400;600&family=Anek+Latin:wght@300;400;600&family=Anek+Malayalam:wght@400&family=Gabarito:wght@400;700&family=Caesar+Dressing&display=swap" rel="stylesheet">
@@ -16,12 +16,18 @@
 </head>
 <body>
 
+    <!-- BOTÃO WHATSAPP FLUTUANTE -->
+    <a href="#" class="whatsapp-float" title="Fale connosco no WhatsApp">
+        <i class="ph ph-whatsapp-logo"></i>
+    </a>
+
     <!-- MENU MOBILE OVERLAY -->
     <div class="mobile-menu-overlay" id="mobileMenu">
         <a href="#" onclick="toggleMenu()">INÍCIO</a>
-        <a href="#sobre" onclick="toggleMenu()">SOBRE NÓS</a>
+        <a href="#horarios" onclick="toggleMenu()">HORÁRIOS</a>
         <a href="#planos" onclick="toggleMenu()">PLANOS</a>
-        <a href="#parceiros" onclick="toggleMenu()">PARCEIROS</a>
+        <a href="#imc" onclick="toggleMenu()">CALCULADORA IMC</a>
+        <a href="#parceiros" onclick="toggleMenu()">DEPOIMENTOS</a>
     </div>
 
     <!-- HEADER -->
@@ -32,9 +38,10 @@
         </div>
         <nav class="nav">
             <a href="#">INÍCIO</a>
-            <a href="#sobre">SOBRE NÓS</a>
+            <a href="#horarios">HORÁRIOS</a>
             <a href="#planos">PLANOS</a>
-            <a href="#parceiros">PARCEIROS</a>
+            <a href="#imc">CALCULE O SEU IMC</a>
+            <a href="#parceiros">DEPOIMENTOS</a>
         </nav>
         <div class="menu-toggle" onclick="toggleMenu()">
             <i class="ph ph-list"></i>
@@ -49,16 +56,22 @@
                 A SUA MELHOR<br>
                 <span>VERSÃO</span>
             </h1>
-            <button class="btn-primary" onclick="scrollToPlans()">QUERO ME MATRICULAR</button>
+            <p style="font-size: 20px; color: #ddd; margin-bottom: 20px; max-width: 500px;">
+                Treine na melhor estrutura da região. Equipamentos modernos, professores qualificados e resultados reais.
+            </p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="scrollToPlans()">QUERO MATRICULAR-ME</button>
+                <button class="btn-secondary" onclick="openModal()">AULA EXPERIMENTAL GRÁTIS</button>
+            </div>
         </div>
     </section>
 
     <!-- BARRA DESTAQUE -->
-    <div class="highlight-bar reveal">+100 UNIDADES EM TODO BRASIL</div>
+    <div class="highlight-bar reveal">+100 UNIDADES EM TODO O BRASIL</div>
 
     <!-- TREINOS (CAROUSEL) -->
     <section class="treinos reveal">
-        <h2 class="section-title">NOSSOS TREINOS SÃO COMPLETOS</h2>
+        <h2 class="section-title">OS NOSSOS TREINOS</h2>
 
         <div class="carousel-container">
             <button class="carousel-btn prev"><i class="ph ph-caret-left"></i></button>
@@ -75,11 +88,64 @@
         </div>
     </section>
 
+    <!-- QUADRO DE HORÁRIOS -->
+    <section class="schedule reveal" id="horarios">
+        <h2 class="section-title">QUADRO DE <span class="text-yellow">AULAS</span></h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Horário</th>
+                        <th>Segunda</th>
+                        <th>Terça</th>
+                        <th>Quarta</th>
+                        <th>Quinta</th>
+                        <th>Sexta</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="time">06:00</td>
+                        <td>CrossFit</td>
+                        <td>Musculação</td>
+                        <td>CrossFit</td>
+                        <td>Musculação</td>
+                        <td>CrossFit</td>
+                    </tr>
+                    <tr>
+                        <td class="time">07:00</td>
+                        <td>Spinning</td>
+                        <td>Yoga</td>
+                        <td>Spinning</td>
+                        <td>Yoga</td>
+                        <td>Spinning</td>
+                    </tr>
+                    <tr>
+                        <td class="time">18:00</td>
+                        <td>Fit Dance</td>
+                        <td>Muay Thai</td>
+                        <td>Fit Dance</td>
+                        <td>Muay Thai</td>
+                        <td>Zumba</td>
+                    </tr>
+                    <tr>
+                        <td class="time">19:00</td>
+                        <td>Musculação</td>
+                        <td>CrossFit</td>
+                        <td>Musculação</td>
+                        <td>CrossFit</td>
+                        <td>Happy Hour</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
     <!-- EQUIPE -->
     <section class="team reveal" id="sobre">
         <div class="team-content">
             <div class="team-info">
-                <h2>CONHEÇA A NOSSA<br><span class="text-yellow">EQUIPE DE PERSONAL</span></h2>
+                <h2>CONHEÇA A NOSSA<br><span class="text-yellow">EQUIPA DE PERSONAL</span></h2>
                 <ul class="team-list">
                     <li><i class="ph ph-check-circle"></i> Profissionais qualificados</li>
                     <li><i class="ph ph-check-circle"></i> Certificação Internacional</li>
@@ -96,64 +162,84 @@
 
     <!-- PLANOS -->
     <section class="plans reveal" id="planos">
-        <h2 class="section-title">NOSSOS PLANOS</h2>
-        
+        <h2 class="section-title">OS NOSSOS PLANOS</h2>
         <div class="plans-grid">
-            <!-- Plano Start -->
             <div class="plan-card">
                 <h3 class="plan-name">ATLAS START</h3>
                 <div class="plan-price">R$ 69,90 <small>/mês</small></div>
                 <ul class="plan-features">
                     <li><i class="ph ph-check"></i> Musculação e cardio</li>
                     <li><i class="ph ph-check"></i> Acesso a uma unidade</li>
-                    <li><i class="ph ph-check"></i> Treino personalizado</li>
                     <li><i class="ph ph-check"></i> Sem taxa de cancelamento</li>
                 </ul>
                 <button class="btn-plan">EU QUERO</button>
             </div>
 
-            <!-- Plano Prime -->
             <div class="plan-card prime">
                 <div class="best-seller">Mais Vendido</div>
                 <h3 class="plan-name text-yellow">ATLAS PRIME</h3>
                 <div class="plan-price">R$ 99,90 <small>/mês</small></div>
                 <ul class="plan-features">
                     <li><i class="ph ph-check"></i> <strong>Tudo do Start +</strong></li>
-                    <li><i class="ph ph-check"></i> Aulas coletivas (Dança, Luta, Yoga)</li>
+                    <li><i class="ph ph-check"></i> Aulas coletivas</li>
                     <li><i class="ph ph-check"></i> Cadeira de massagem</li>
                     <li><i class="ph ph-check"></i> Acesso a TODAS as unidades</li>
-                    <li><i class="ph ph-check"></i> 3 avaliações por mês</li>
                 </ul>
                 <button class="btn-plan">EU QUERO</button>
             </div>
 
-            <!-- Plano Black -->
             <div class="plan-card">
                 <h3 class="plan-name" style="color:#ccc">ATLAS BLACK</h3>
                 <div class="plan-price" style="color:#ccc">R$ 149,90 <small>/mês</small></div>
                 <ul class="plan-features">
                     <li><i class="ph ph-check"></i> <strong>Tudo do Prime +</strong></li>
-                    <li><i class="ph ph-check"></i> Avaliação física mensal inclusa</li>
-                    <li><i class="ph ph-check"></i> Camiseta exclusiva Atlas Prime</li>
+                    <li><i class="ph ph-check"></i> Avaliação física mensal</li>
                     <li><i class="ph ph-check"></i> Kit boas-vindas</li>
-                    <li><i class="ph ph-check"></i> Consultoria nutricional (App)</li>
+                    <li><i class="ph ph-check"></i> Consultoria nutricional</li>
                 </ul>
                 <button class="btn-plan" style="border-color: #ccc; color: #ccc;">EU QUERO</button>
             </div>
         </div>
     </section>
 
+    <!-- CALCULADORA IMC -->
+    <section class="imc-section reveal" id="imc">
+        <div class="container">
+            <div class="imc-content">
+                <div class="imc-text">
+                    <h2>CALCULE O SEU <span class="text-yellow">IMC</span></h2>
+                    <p>O Índice de Massa Corporal (IMC) é uma medida internacional usada para calcular se uma pessoa está no peso ideal. Insira os seus dados e confira.</p>
+                </div>
+                <div class="imc-calculator">
+                    <div class="input-group">
+                        <label>Altura (m)</label>
+                        <input type="number" id="imcHeight" placeholder="Ex: 1.75" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label>Peso (kg)</label>
+                        <input type="number" id="imcWeight" placeholder="Ex: 80">
+                    </div>
+                    <button class="btn-primary" style="width: 100%; margin-top: 10px;" onclick="calculateIMC()">CALCULAR AGORA</button>
+                    
+                    <div id="imcResult" class="imc-result">
+                        <span>O seu resultado aparecerá aqui.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- DIFERENCIAIS -->
     <section class="differentials reveal">
-        <h2>NOSSO DIFERENCIAL</h2>
+        <h2>O NOSSO DIFERENCIAL</h2>
         <div class="differentials-grid">
             <div class="differential-item">
                 <div class="differential-icon"><i class="ph ph-car"></i></div>
-                <span class="differential-text">Estacionamento Grátis</span>
+                <span class="differential-text">Estacionamento</span>
             </div>
             <div class="differential-item">
                 <div class="differential-icon"><i class="ph ph-shower"></i></div>
-                <span class="differential-text">Vestiários com Chuveiro</span>
+                <span class="differential-text">Vestiários</span>
             </div>
             <div class="differential-item">
                 <div class="differential-icon"><i class="ph ph-clock"></i></div>
@@ -163,70 +249,31 @@
                 <div class="differential-icon"><i class="ph ph-scales"></i></div>
                 <span class="differential-text">Bioimpedância</span>
             </div>
-            <div class="differential-item">
-                <div class="differential-icon"><i class="ph ph-barbell"></i></div>
-                <span class="differential-text">Equipamentos Importados</span>
-            </div>
-            <div class="differential-item">
-                <div class="differential-icon"><i class="ph ph-coffee"></i></div>
-                <span class="differential-text">Fit Bar / Lounge</span>
-            </div>
         </div>
     </section>
 
     <!-- DEPOIMENTOS -->
     <section class="testimonials reveal" id="parceiros">
-        <h2 class="section-title">DEPOIMENTOS DE ALUNOS</h2>
+        <h2 class="section-title">O QUE DIZEM OS NOSSOS ALUNOS</h2>
         <div class="testimonials-grid">
-            <!-- Depoimento 1 -->
             <div class="testimonial-card">
-                <div class="stars">
-                    <i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i>
-                </div>
-                <p class="quote">"Comecei a treinar por recomendação médica e hoje não vivo sem. A equipe da Atlas transformou minha saúde e minha disposição!"</p>
-                <div class="author">
-                    <div class="author-info">
-                        <h4>Maria do Carmo</h4>
-                        <span>Aposentada</span>
-                    </div>
-                </div>
+                <div class="stars"><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i></div>
+                <p class="quote">"Melhor estrutura da cidade, os professores são super atenciosos!"</p>
+                <div class="author-info"><h4>Maria do Carmo</h4></div>
             </div>
-            <!-- Depoimento 2 -->
             <div class="testimonial-card">
-                <div class="stars">
-                    <i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i>
-                </div>
-                <p class="quote">"O ambiente é incrível e super acolhedor. Consegui resultados que nunca tive em outras academias. Minha autoestima está lá em cima!"</p>
-                <div class="author">
-                    <div class="author-info">
-                        <h4>Mariana S.</h4>
-                        <span>Estudante</span>
-                    </div>
-                </div>
-            </div>
-            <!-- Depoimento 3 -->
-            <div class="testimonial-card">
-                <div class="stars">
-                    <i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i>
-                </div>
-                <p class="quote">"Estrutura de ponta e equipamentos que aguentam treino pesado de verdade. Aqui o treino é sério e os resultados vêm!"</p>
-                <div class="author">
-                    <div class="author-info">
-                        <h4>Ricardo "Nick"</h4>
-                        <span>Atleta</span>
-                    </div>
-                </div>
+                <div class="stars"><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i></div>
+                <p class="quote">"Resultados incríveis em apenas 3 meses de Atlas Prime."</p>
+                <div class="author-info"><h4>Ricardo "Nick"</h4></div>
             </div>
         </div>
     </section>
 
     <!-- LOCALIZAÇÃO -->
     <section class="location reveal">
-        <h2 class="section-title" style="margin-bottom: 20px;">ENCONTRE A ATLAS MAIS PRÓXIMA!</h2>
-        <p style="font-size: 20px;">Digite seu CEP e comece a treinar hoje mesmo.</p>
-        
+        <h2 class="section-title">ENCONTRE A UNIDADE MAIS PRÓXIMA</h2>
         <div class="search-box">
-            <input type="text" placeholder="Digite seu CEP..." />
+            <input type="text" placeholder="Digite o seu CEP..." />
             <button><i class="ph ph-magnifying-glass"></i></button>
         </div>
     </section>
@@ -241,102 +288,22 @@
         <p>© 2024 Atlas Prime - Todos os direitos reservados.</p>
     </footer>
 
-    <script>
-        /* ========================= */
-        /* JS GERAL DO SITE */
-        /* ========================= */
+    <!-- MODAL AULA EXPERIMENTAL -->
+    <div id="modalFreePass" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2 class="text-yellow">AULA EXPERIMENTAL GRÁTIS</h2>
+            <p>Preencha os seus dados para ganhar um Free Pass de 3 dias!</p>
+            <form onsubmit="event.preventDefault(); alert('Solicitação enviada! Entraremos em contacto.'); closeModal();">
+                <input type="text" placeholder="O Seu Nome" required style="width: 100%; padding: 10px; margin: 10px 0;">
+                <input type="email" placeholder="O Seu E-mail" required style="width: 100%; padding: 10px; margin: 10px 0;">
+                <input type="tel" placeholder="O Seu WhatsApp" required style="width: 100%; padding: 10px; margin: 10px 0;">
+                <button type="submit" class="btn-primary" style="width: 100%;">QUERO O MEU PASSE</button>
+            </form>
+        </div>
+    </div>
 
-        // 1. MENU MOBILE
-        function toggleMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('open');
-        }
-
-        // 2. HEADER STICKY (Fixo ao rolar)
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // 3. ANIMAÇÃO DE SCROLL (REVEAL)
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-        window.addEventListener("scroll", reveal);
-        // Ativar no carregamento inicial também
-        reveal();
-
-        // 4. SCROLL SUAVE PARA BOTÕES
-        function scrollToPlans() {
-            document.getElementById('planos').scrollIntoView();
-        }
-
-        // 5. CARROSSEL (Lógica anterior mantida)
-        const images = document.querySelectorAll('.carousel-track img');
-        const nextBtn = document.querySelector('.next');
-        const prevBtn = document.querySelector('.prev');
-        let current = 1; 
-
-        function updateCarousel() {
-            images.forEach(img => {
-                img.classList.remove('active');
-                img.style.display = 'none'; 
-            });
-
-            const total = images.length;
-            const prevIndex = (current - 1 + total) % total;
-            const nextIndex = (current + 1) % total;
-
-            // Anterior
-            images[prevIndex].style.display = 'block';
-            images[prevIndex].style.transform = 'scale(0.8) translateX(-120%)';
-            images[prevIndex].style.opacity = '0.4';
-            images[prevIndex].style.zIndex = '1';
-
-            // Atual
-            images[current].style.display = 'block';
-            images[current].classList.add('active');
-            images[current].style.transform = 'scale(1.1) translateX(0)';
-            images[current].style.opacity = '1';
-            images[current].style.zIndex = '2';
-
-            // Próximo
-            images[nextIndex].style.display = 'block';
-            images[nextIndex].style.transform = 'scale(0.8) translateX(120%)';
-            images[nextIndex].style.opacity = '0.4';
-            images[nextIndex].style.zIndex = '1';
-        }
-
-        updateCarousel();
-
-        nextBtn.onclick = () => {
-            current = (current + 1) % images.length;
-            updateCarousel();
-        };
-
-        prevBtn.onclick = () => {
-            current = (current - 1 + images.length) % images.length;
-            updateCarousel();
-        };
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') prevBtn.click();
-            if (e.key === 'ArrowRight') nextBtn.click();
-        });
-    </script>
+    <!-- Script externo -->
+    <script src="script.js"></script>
 </body>
 </html>
