@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Atlas Prime - A Sua Academia</title>
 
-    <!-- Fonts -->
+    <!-- Fontes Google -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Anton&family=Archivo:wght@400;600&family=Anek+Latin:wght@300;400;600&family=Anek+Malayalam:wght@400&family=Gabarito:wght@400;700&family=Caesar+Dressing&display=swap" rel="stylesheet">
     
-    <!-- Phosphor Icons -->
+    <!-- Ícones (Phosphor Icons) -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-    <!-- Link para o CSS externo -->
+    <!-- Ligação ao ficheiro CSS -->
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -21,16 +21,17 @@
         <i class="ph ph-whatsapp-logo"></i>
     </a>
 
-    <!-- MENU MOBILE OVERLAY -->
+    <!-- MENU MOBILE (OVERLAY) -->
     <div class="mobile-menu-overlay" id="mobileMenu">
         <a href="#" onclick="toggleMenu()">INÍCIO</a>
         <a href="#horarios" onclick="toggleMenu()">HORÁRIOS</a>
         <a href="#planos" onclick="toggleMenu()">PLANOS</a>
         <a href="#imc" onclick="toggleMenu()">CALCULADORA IMC</a>
         <a href="#parceiros" onclick="toggleMenu()">DEPOIMENTOS</a>
+        <button class="close-menu-btn" onclick="toggleMenu()"><i class="ph ph-x"></i> Fechar</button>
     </div>
 
-    <!-- HEADER -->
+    <!-- CABEÇALHO (HEADER) -->
     <header class="header" id="header">
         <div class="logo">
             <span class="logo-atlas">ATLAS</span>
@@ -48,7 +49,7 @@
         </div>
     </header>
 
-    <!-- HERO -->
+    <!-- SECÇÃO HERO (PRINCIPAL) -->
     <section class="hero">
         <div class="hero-content reveal">
             <h1>
@@ -56,7 +57,7 @@
                 A SUA MELHOR<br>
                 <span>VERSÃO</span>
             </h1>
-            <p style="font-size: 20px; color: #ddd; margin-bottom: 20px; max-width: 500px;">
+            <p class="hero-subtitle">
                 Treine na melhor estrutura da região. Equipamentos modernos, professores qualificados e resultados reais.
             </p>
             <div class="hero-buttons">
@@ -66,10 +67,10 @@
         </div>
     </section>
 
-    <!-- BARRA DESTAQUE -->
+    <!-- BARRA DE DESTAQUE -->
     <div class="highlight-bar reveal">+100 UNIDADES EM TODO O BRASIL</div>
 
-    <!-- TREINOS (CAROUSEL) -->
+    <!-- TREINOS (CARROSSEL) -->
     <section class="treinos reveal">
         <h2 class="section-title">OS NOSSOS TREINOS</h2>
 
@@ -77,11 +78,12 @@
             <button class="carousel-btn prev"><i class="ph ph-caret-left"></i></button>
 
             <div class="carousel-track">
-                <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=1000&auto=format&fit=crop" alt="Treino Funcional" class="slide" />
-                <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1000&auto=format&fit=crop" alt="Musculação" class="slide active" />
-                <img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?q=80&w=1000&auto=format&fit=crop" alt="Cardio" class="slide" />
-                <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=1000&auto=format&fit=crop" alt="Crossfit" class="slide" />
-                <img src="https://images.unsplash.com/photo-1574680096141-1cddd32e01f5?q=80&w=1000&auto=format&fit=crop" alt="Boxe" class="slide" />
+                <!-- Imagens dos treinos -->
+                <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=800&auto=format&fit=crop" alt="Treino Funcional" />
+                <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=800&auto=format&fit=crop" alt="Musculação" />
+                <img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?q=80&w=800&auto=format&fit=crop" alt="Cardio" />
+                <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=800&auto=format&fit=crop" alt="Crossfit" />
+                <img src="https://images.unsplash.com/photo-1574680096141-1cddd32e01f5?q=80&w=800&auto=format&fit=crop" alt="Boxe" />
             </div>
 
             <button class="carousel-btn next"><i class="ph ph-caret-right"></i></button>
@@ -141,7 +143,7 @@
         </div>
     </section>
 
-    <!-- EQUIPE -->
+    <!-- EQUIPA -->
     <section class="team reveal" id="sobre">
         <div class="team-content">
             <div class="team-info">
@@ -152,10 +154,10 @@
                     <li><i class="ph ph-check-circle"></i> Acompanhamento personalizado</li>
                     <li><i class="ph ph-check-circle"></i> Segurança e eficiência nos treinos</li>
                 </ul>
-                <button class="btn-primary" style="font-size: 20px; padding: 10px 30px;">Agendar Avaliação</button>
+                <button class="btn-primary btn-team">Agendar Avaliação</button>
             </div>
             <div class="team-image">
-                <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2070&auto=format&fit=crop" alt="Equipe de Personal Trainers">
+                <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=1200&auto=format&fit=crop" alt="Equipa de Personal Trainers">
             </div>
         </div>
     </section>
@@ -164,6 +166,7 @@
     <section class="plans reveal" id="planos">
         <h2 class="section-title">OS NOSSOS PLANOS</h2>
         <div class="plans-grid">
+            <!-- Plano Start -->
             <div class="plan-card">
                 <h3 class="plan-name">ATLAS START</h3>
                 <div class="plan-price">R$ 69,90 <small>/mês</small></div>
@@ -175,6 +178,7 @@
                 <button class="btn-plan">EU QUERO</button>
             </div>
 
+            <!-- Plano Prime -->
             <div class="plan-card prime">
                 <div class="best-seller">Mais Vendido</div>
                 <h3 class="plan-name text-yellow">ATLAS PRIME</h3>
@@ -188,6 +192,7 @@
                 <button class="btn-plan">EU QUERO</button>
             </div>
 
+            <!-- Plano Black -->
             <div class="plan-card">
                 <h3 class="plan-name" style="color:#ccc">ATLAS BLACK</h3>
                 <div class="plan-price" style="color:#ccc">R$ 149,90 <small>/mês</small></div>
@@ -197,7 +202,7 @@
                     <li><i class="ph ph-check"></i> Kit boas-vindas</li>
                     <li><i class="ph ph-check"></i> Consultoria nutricional</li>
                 </ul>
-                <button class="btn-plan" style="border-color: #ccc; color: #ccc;">EU QUERO</button>
+                <button class="btn-plan btn-plan-disabled">EU QUERO</button>
             </div>
         </div>
     </section>
@@ -219,10 +224,10 @@
                         <label>Peso (kg)</label>
                         <input type="number" id="imcWeight" placeholder="Ex: 80">
                     </div>
-                    <button class="btn-primary" style="width: 100%; margin-top: 10px;" onclick="calculateIMC()">CALCULAR AGORA</button>
+                    <button class="btn-primary btn-calc" onclick="calculateIMC()">CALCULAR AGORA</button>
                     
                     <div id="imcResult" class="imc-result">
-                        <span>O seu resultado aparecerá aqui.</span>
+                        <!-- O resultado aparecerá aqui via Javascript -->
                     </div>
                 </div>
             </div>
@@ -278,6 +283,7 @@
         </div>
     </section>
 
+    <!-- RODAPÉ -->
     <footer>
         <div class="social-links">
             <a href="#"><i class="ph ph-instagram-logo"></i></a>
@@ -295,15 +301,15 @@
             <h2 class="text-yellow">AULA EXPERIMENTAL GRÁTIS</h2>
             <p>Preencha os seus dados para ganhar um Free Pass de 3 dias!</p>
             <form onsubmit="event.preventDefault(); alert('Solicitação enviada! Entraremos em contacto.'); closeModal();">
-                <input type="text" placeholder="O Seu Nome" required style="width: 100%; padding: 10px; margin: 10px 0;">
-                <input type="email" placeholder="O Seu E-mail" required style="width: 100%; padding: 10px; margin: 10px 0;">
-                <input type="tel" placeholder="O Seu WhatsApp" required style="width: 100%; padding: 10px; margin: 10px 0;">
-                <button type="submit" class="btn-primary" style="width: 100%;">QUERO O MEU PASSE</button>
+                <input type="text" placeholder="O Seu Nome" required>
+                <input type="email" placeholder="O Seu E-mail" required>
+                <input type="tel" placeholder="O Seu WhatsApp" required>
+                <button type="submit" class="btn-primary btn-modal-submit">QUERO O MEU PASSE</button>
             </form>
         </div>
     </div>
 
-    <!-- Script externo -->
+    <!-- Ligação ao Ficheiro Javascript -->
     <script src="script.js"></script>
 </body>
 </html>
