@@ -174,17 +174,18 @@ ul { list-style: none; }
 }
 
 /* ========================= */
-/* HERO SECTION (CORRIGIDA) */
+/* HERO SECTION (CORRIGIDA - SEM CORTAR BOTÕES) */
 /* ========================= */
 .hero {
-    min-height: 100vh; /* Permite crescer se o texto for grande */
-    height: auto;
+    min-height: 100vh; /* Ocupa no mínimo a tela toda */
+    height: auto;      /* Mas cresce se precisar (Evita cortes em notebooks) */
     /* Gradiente mantido */
     background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.9) 100%), 
                 url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
     display: flex;
     align-items: center; 
-    padding: 140px 60px 100px 60px; /* Topo, Dir, Baixo, Esq -> Mais espaço em cima e embaixo */
+    /* Padding aumentado embaixo (150px) para garantir espaço para os botões */
+    padding: 140px 60px 150px 60px; 
     position: relative;
 }
 
@@ -470,7 +471,7 @@ tr:hover td {
 }
 
 /* ========================= */
-/* PLANOS (REDESENHADOS COM GLOW) */
+/* PLANOS (CORRIGIDO: BLACK BRILHA!) */
 /* ========================= */
 .plans {
     padding: 100px 20px;
@@ -493,23 +494,43 @@ tr:hover td {
     border-radius: 20px;
     text-align: center;
     position: relative;
-    transition: all 0.3s;
+    transition: all 0.4s ease;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 }
 
-/* Estilo específico para o PLANO PRIME (Destaque) */
+/* Efeito ao passar o mouse em QUALQUER plano (Sobem um pouco) */
+.plan-card:hover {
+    transform: translateY(-10px);
+}
+
+/* --- PLANO PRIME (O Amarelo - Destaque Fixo) --- */
 .plan-card.prime {
     background: #1a1a1a;
     border: 2px solid var(--yellow);
-    transform: scale(1.1); /* Um pouco maior que os outros */
+    transform: scale(1.05); /* Já começa maior */
     z-index: 10;
-    box-shadow: 0 0 30px rgba(237, 242, 40, 0.2); /* Efeito GLOW amarelo */
+    box-shadow: 0 0 30px rgba(237, 242, 40, 0.15);
 }
 
 .plan-card.prime:hover {
-    box-shadow: 0 0 50px rgba(237, 242, 40, 0.4); /* Glow mais forte no hover */
-    transform: scale(1.15);
+    transform: scale(1.1); /* Cresce mais no hover */
+    box-shadow: 0 0 50px rgba(237, 242, 40, 0.4);
+}
+
+/* --- PLANO BLACK E START (Efeito Prata/Branco no Hover) --- */
+/* Quando passar o mouse em planos que NÃO são o prime */
+.plan-card:not(.prime):hover {
+    border-color: #ffffff; 
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2); /* Brilho Branco "Premium" */
+}
+
+/* Força o título e o preço (que estavam cinzas) a ficarem BRANCOS no hover */
+.plan-card:not(.prime):hover h3, 
+.plan-card:not(.prime):hover .plan-price {
+    color: #ffffff !important; 
+    transition: color 0.3s;
 }
 
 .best-seller {
@@ -984,15 +1005,21 @@ footer {
 .close-modal:hover { color: var(--yellow); }
 
 /* --- RESPONSIVIDADE E CORREÇÃO PARA NOTEBOOKS --- */
+/* Esta parte corrige o problema da barra amarela cortando os botões */
 @media (max-width: 1400px), (max-height: 800px) {
-    /* Ajustes para telas menores ou baixas (Notebooks) */
+    .hero {
+        padding-top: 120px;
+        padding-bottom: 100px; /* Mais espaço embaixo */
+        min-height: auto; /* Altura livre para crescer */
+    }
+
     .hero h1 {
-        font-size: 70px; /* Diminui o texto gigante */
-        margin-bottom: 10px;
+        font-size: 65px; /* Reduz o título */
+        margin-bottom: 15px;
     }
     
     .hero h1 span {
-        font-size: 90px; /* Diminui a palavra VERSÃO */
+        font-size: 85px; /* Reduz destaque */
     }
 
     .hero-subtitle {
@@ -1003,16 +1030,12 @@ footer {
 
     .btn-primary, .btn-secondary {
         font-size: 16px;
-        padding: 12px 30px; /* Botões um pouco menores */
-    }
-    
-    .hero {
-        padding-top: 120px; /* Ajuste para não bater no menu */
+        padding: 12px 25px; /* Botões menores */
     }
 }
 
 @media (max-width: 768px) {
-    /* Ajustes para Mobile */
+    /* Ajustes para Mobile (Celular) */
     .header { padding: 20px; }
     .nav { display: none; }
     .menu-toggle { display: block; }
