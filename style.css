@@ -920,3 +920,9 @@ footer {
     .carousel-container { height: 400px; }
     .carousel-track img { width: 250px; height: 350px; }
 }
+.header.scrolled {
+    background-color: rgba(10, 10, 10, 0.85); /* Mais transparência */
+    backdrop-filter: blur(10px); /* O efeito de vidro */
+    -webkit-backdrop-filter: blur(10px); /* Para Safari */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}

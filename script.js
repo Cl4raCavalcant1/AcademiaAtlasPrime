@@ -149,3 +149,16 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+// Adicione isso logo após a lógica do carrossel existente
+let autoPlayInterval = setInterval(() => {
+    if (nextBtn) nextBtn.click();
+}, 5000);
+
+// Pausar quando o mouse estiver em cima (para o usuário ver com calma)
+const carouselContainer = document.querySelector('.carousel-container');
+carouselContainer.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
+carouselContainer.addEventListener('mouseleave', () => {
+    autoPlayInterval = setInterval(() => {
+        if (nextBtn) nextBtn.click();
+    }, 5000);
+});
