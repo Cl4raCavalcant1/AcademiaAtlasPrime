@@ -78,7 +78,10 @@ ul { list-style: none; }
 }
 
 .header.scrolled {
-    background-color: rgba(10, 10, 10, 0.95);
+    background-color: rgba(10, 10, 10, 0.85); /* Mais transparência */
+    backdrop-filter: blur(10px); /* O efeito de vidro */
+    -webkit-backdrop-filter: blur(10px); /* Para Safari */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding: 15px 60px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
@@ -88,6 +91,7 @@ ul { list-style: none; }
     font-size: 32px;
     letter-spacing: 1px;
     z-index: 102;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* Leitura melhorada */
 }
 
 .logo-atlas { color: var(--white); }
@@ -96,6 +100,10 @@ ul { list-style: none; }
 .nav {
     display: flex;
     gap: 30px;
+    background: rgba(0,0,0,0.3); /* Fundo sutil para leitura */
+    padding: 10px 20px;
+    border-radius: 30px;
+    backdrop-filter: blur(5px);
 }
 
 .nav a {
@@ -105,6 +113,7 @@ ul { list-style: none; }
     transition: color 0.3s;
     text-transform: uppercase;
     position: relative;
+    color: var(--white);
 }
 
 .nav a:hover { color: var(--yellow); }
@@ -169,16 +178,20 @@ ul { list-style: none; }
 /* ========================= */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+    /* Gradiente mais forte no topo para o menu ficar legível */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.9) 100%), 
+                url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
     display: flex;
-    align-items: center;
+    align-items: center; /* Centraliza verticalmente */
     padding: 0 60px;
     position: relative;
+    padding-top: 100px; /* IMPORTANTE: Empurra o conteúdo para baixo para não bater no logo */
 }
 
 .hero-content {
-    max-width: 800px;
+    max-width: 900px;
     z-index: 2;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.8); /* Sombra para destacar do fundo */
 }
 
 .hero h1 {
@@ -457,7 +470,7 @@ tr:hover td {
 }
 
 /* ========================= */
-/* PLANOS */
+/* PLANOS (REDESENHADOS) */
 /* ========================= */
 .plans {
     padding: 100px 20px;
@@ -467,108 +480,138 @@ tr:hover td {
 .plans-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    gap: 40px; /* Mais espaço entre eles */
+    align-items: center; /* Alinha verticalmente */
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .plan-card {
-    background: var(--light-gray);
+    background: #151515;
+    border: 1px solid #333;
+    padding: 50px 30px; /* Mais espaçamento interno */
     border-radius: 20px;
-    padding: 40px;
     text-align: center;
     position: relative;
-    transition: transform 0.3s;
-    border: 2px solid transparent;
+    transition: all 0.3s;
     display: flex;
     flex-direction: column;
 }
 
-.plan-card:hover { transform: translateY(-10px); }
-
+/* Estilo específico para o PLANO PRIME (Destaque) */
 .plan-card.prime {
-    border-color: var(--yellow);
-    background: #222;
-    transform: scale(1.05);
+    background: #1a1a1a;
+    border: 2px solid var(--yellow);
+    transform: scale(1.1); /* Um pouco maior que os outros */
+    z-index: 10;
+    box-shadow: 0 0 30px rgba(237, 242, 40, 0.2); /* Efeito GLOW amarelo */
 }
 
 .plan-card.prime:hover {
-    transform: scale(1.05) translateY(-10px);
+    box-shadow: 0 0 50px rgba(237, 242, 40, 0.4); /* Glow mais forte no hover */
+    transform: scale(1.15);
 }
 
 .best-seller {
+    background: var(--yellow);
+    color: var(--black);
+    padding: 8px 30px;
+    font-weight: 800;
+    border-radius: 30px;
     position: absolute;
     top: -15px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--yellow);
-    color: var(--black);
-    padding: 5px 20px;
-    font-family: var(--font-accent);
-    text-transform: uppercase;
-    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
     font-size: 14px;
-    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 .plan-name {
-    font-family: var(--font-display);
-    font-size: 40px;
+    font-size: 32px;
     margin-bottom: 10px;
+    letter-spacing: 1px;
+    font-family: var(--font-display);
 }
 
+/* Preço Gigante */
 .plan-price {
-    font-family: var(--font-accent);
-    font-size: 36px;
-    color: var(--yellow);
-    margin-bottom: 30px;
+    font-size: 58px;
+    font-weight: bold;
+    color: var(--white);
+    margin: 20px 0;
+    font-family: var(--font-display);
+    line-height: 1;
 }
 
 .plan-price small {
     font-size: 16px;
-    color: #fff;
+    color: #888;
+    font-weight: normal;
     font-family: var(--font-body);
+    display: block;
+    margin-top: 5px;
 }
 
+/* Lista de Benefícios mais limpa */
 .plan-features {
     text-align: left;
-    margin-bottom: 30px;
+    margin: 30px 0;
+    border-top: 1px solid #333;
+    padding-top: 30px;
     flex-grow: 1;
 }
 
 .plan-features li {
-    margin-bottom: 12px;
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
+    margin-bottom: 15px;
+    color: #ddd;
     font-size: 16px;
-    color: #ccc;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.plan-features i { color: var(--yellow); margin-top: 3px; }
+.plan-features i {
+    color: var(--yellow);
+    font-size: 20px;
+    background: rgba(237, 242, 40, 0.1); /* Fundo sutil no ícone */
+    padding: 5px;
+    border-radius: 50%;
+}
 
+/* Botão do plano */
 .btn-plan {
     width: 100%;
-    padding: 15px;
+    padding: 18px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
     background: transparent;
     border: 2px solid var(--yellow);
     color: var(--white);
-    font-family: var(--font-display);
-    font-size: 24px;
-    cursor: pointer;
-    transition: 0.3s;
     text-transform: uppercase;
-    border-radius: 10px;
+    font-family: var(--font-display);
 }
 
-.plan-card.prime .btn-plan, .btn-plan:hover {
+/* Botão Prime Cheio */
+.plan-card.prime .btn-plan {
     background: var(--yellow);
     color: var(--black);
+    border: none;
+    box-shadow: 0 5px 20px rgba(237, 242, 40, 0.3);
+}
+
+.plan-card.prime .btn-plan:hover {
+    background: #fff;
+    transform: translateY(-3px);
 }
 
 .btn-plan-disabled {
-    border-color: #ccc;
-    color: #ccc;
+    border-color: #555;
+    color: #555;
 }
 
 /* ========================= */
@@ -710,6 +753,7 @@ tr:hover td {
     line-height: 1.2;
 }
 
+/* --- NOVOS DEPOIMENTOS --- */
 .testimonials {
     padding: 100px 20px;
     background-color: var(--black);
@@ -717,35 +761,79 @@ tr:hover td {
 
 .testimonials-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Cards mais largos */
+    gap: 40px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .testimonial-card {
-    background: var(--dark-gray);
-    padding: 30px;
-    border-radius: 20px;
+    background: #1a1a1a;
+    padding: 40px;
+    border-radius: 15px;
     position: relative;
-    transition: transform 0.3s;
+    border-bottom: 4px solid transparent;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .testimonial-card:hover {
-    transform: scale(1.02);
-    background: #202020;
+    transform: translateY(-10px);
+    background: #222;
+    border-bottom: 4px solid var(--yellow); /* Detalhe amarelo ao passar o mouse */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Ícone de aspas gigante no fundo para estilo */
+.testimonial-card::before {
+    content: '"';
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    font-size: 120px;
+    color: rgba(255, 255, 255, 0.05);
+    font-family: serif;
+    line-height: 1;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+}
+
+.user-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--yellow);
+}
+
+.user-info h4 {
+    color: var(--white);
+    font-size: 18px;
+    margin-bottom: 2px;
+}
+
+.user-info span {
+    color: #888;
+    font-size: 14px;
 }
 
 .stars { color: var(--yellow); margin-bottom: 15px; }
 
 .quote {
+    font-size: 18px;
     font-style: italic;
-    color: #ddd;
-    margin-bottom: 20px;
+    color: #ccc;
     line-height: 1.6;
 }
-
-.author-info h4 { font-weight: bold; color: var(--white); }
 
 .location {
     padding: 80px 20px;
@@ -901,7 +989,7 @@ footer {
     .nav { display: none; }
     .menu-toggle { display: block; }
     
-    .hero { padding: 0 20px; justify-content: center; text-align: center; }
+    .hero { padding: 0 20px; justify-content: center; text-align: center; padding-top: 80px; } /* Ajuste mobile */
     .hero h1 { font-size: 60px; }
     .hero h1 span { font-size: 80px; }
     .hero-buttons { justify-content: center; }
@@ -919,10 +1007,4 @@ footer {
 
     .carousel-container { height: 400px; }
     .carousel-track img { width: 250px; height: 350px; }
-}
-.header.scrolled {
-    background-color: rgba(10, 10, 10, 0.85); /* Mais transparência */
-    backdrop-filter: blur(10px); /* O efeito de vidro */
-    -webkit-backdrop-filter: blur(10px); /* Para Safari */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }

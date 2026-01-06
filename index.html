@@ -5,23 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Atlas Prime - A Sua Academia</title>
 
-    <!-- Fontes Google -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Anton&family=Archivo:wght@400;600&family=Anek+Latin:wght@300;400;600&family=Anek+Malayalam:wght@400&family=Gabarito:wght@400;700&family=Caesar+Dressing&display=swap" rel="stylesheet">
     
-    <!-- Ícones (Phosphor Icons) -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-    <!-- Ligação ao ficheiro CSS -->
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <!-- BOTÃO WHATSAPP FLUTUANTE -->
-    <a href="#" class="whatsapp-float" title="Fale connosco no WhatsApp">
+    <a href="#" class="whatsapp-float" title="Fale conosco no WhatsApp">
         <i class="ph ph-whatsapp-logo"></i>
     </a>
 
-    <!-- MENU MOBILE (OVERLAY) -->
     <div class="mobile-menu-overlay" id="mobileMenu">
         <a href="#" onclick="toggleMenu()">INÍCIO</a>
         <a href="#horarios" onclick="toggleMenu()">HORÁRIOS</a>
@@ -31,7 +26,6 @@
         <button class="close-menu-btn" onclick="toggleMenu()"><i class="ph ph-x"></i> Fechar</button>
     </div>
 
-    <!-- CABEÇALHO (HEADER) -->
     <header class="header" id="header">
         <div class="logo">
             <span class="logo-atlas">ATLAS</span>
@@ -49,7 +43,6 @@
         </div>
     </header>
 
-    <!-- SECÇÃO HERO (PRINCIPAL) -->
     <section class="hero">
         <div class="hero-content reveal">
             <h1>
@@ -67,10 +60,8 @@
         </div>
     </section>
 
-    <!-- BARRA DE DESTAQUE -->
     <div class="highlight-bar reveal">+100 UNIDADES EM TODO O BRASIL</div>
 
-    <!-- TREINOS (CARROSSEL) -->
     <section class="treinos reveal">
         <h2 class="section-title">OS NOSSOS TREINOS</h2>
 
@@ -78,7 +69,6 @@
             <button class="carousel-btn prev"><i class="ph ph-caret-left"></i></button>
 
             <div class="carousel-track">
-                <!-- Imagens dos treinos -->
                 <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=800&auto=format&fit=crop" alt="Treino Funcional" />
                 <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=800&auto=format&fit=crop" alt="Musculação" />
                 <img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?q=80&w=800&auto=format&fit=crop" alt="Cardio" />
@@ -90,7 +80,6 @@
         </div>
     </section>
 
-    <!-- QUADRO DE HORÁRIOS -->
     <section class="schedule reveal" id="horarios">
         <h2 class="section-title">QUADRO DE <span class="text-yellow">AULAS</span></h2>
         <div class="table-container">
@@ -143,11 +132,10 @@
         </div>
     </section>
 
-    <!-- EQUIPA -->
     <section class="team reveal" id="sobre">
         <div class="team-content">
             <div class="team-info">
-                <h2>CONHEÇA A NOSSA<br><span class="text-yellow">EQUIPA DE PERSONAL</span></h2>
+                <h2>CONHEÇA A NOSSA<br><span class="text-yellow">EQUIPE DE PERSONAL</span></h2>
                 <ul class="team-list">
                     <li><i class="ph ph-check-circle"></i> Profissionais qualificados</li>
                     <li><i class="ph ph-check-circle"></i> Certificação Internacional</li>
@@ -162,11 +150,9 @@
         </div>
     </section>
 
-    <!-- PLANOS -->
     <section class="plans reveal" id="planos">
         <h2 class="section-title">OS NOSSOS PLANOS</h2>
         <div class="plans-grid">
-            <!-- Plano Start -->
             <div class="plan-card">
                 <h3 class="plan-name">ATLAS START</h3>
                 <div class="plan-price">R$ 69,90 <small>/mês</small></div>
@@ -178,9 +164,8 @@
                 <button class="btn-plan">EU QUERO</button>
             </div>
 
-            <!-- Plano Prime -->
             <div class="plan-card prime">
-                <div class="best-seller">Mais Vendido</div>
+                <div class="best-seller">MAIS VENDIDO</div>
                 <h3 class="plan-name text-yellow">ATLAS PRIME</h3>
                 <div class="plan-price">R$ 99,90 <small>/mês</small></div>
                 <ul class="plan-features">
@@ -192,7 +177,6 @@
                 <button class="btn-plan">EU QUERO</button>
             </div>
 
-            <!-- Plano Black -->
             <div class="plan-card">
                 <h3 class="plan-name" style="color:#ccc">ATLAS BLACK</h3>
                 <div class="plan-price" style="color:#ccc">R$ 149,90 <small>/mês</small></div>
@@ -207,7 +191,6 @@
         </div>
     </section>
 
-    <!-- CALCULADORA IMC -->
     <section class="imc-section reveal" id="imc">
         <div class="container">
             <div class="imc-content">
@@ -227,14 +210,12 @@
                     <button class="btn-primary btn-calc" onclick="calculateIMC()">CALCULAR AGORA</button>
                     
                     <div id="imcResult" class="imc-result">
-                        <!-- O resultado aparecerá aqui via Javascript -->
-                    </div>
+                        </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- DIFERENCIAIS -->
     <section class="differentials reveal">
         <h2>O NOSSO DIFERENCIAL</h2>
         <div class="differentials-grid">
@@ -257,24 +238,64 @@
         </div>
     </section>
 
-    <!-- DEPOIMENTOS -->
     <section class="testimonials reveal" id="parceiros">
-        <h2 class="section-title">O QUE DIZEM OS NOSSOS ALUNOS</h2>
+        <h2 class="section-title">QUEM TREINA, <span class="text-yellow">APROVA</span></h2>
         <div class="testimonials-grid">
             <div class="testimonial-card">
-                <div class="stars"><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i></div>
-                <p class="quote">"Melhor estrutura da cidade, os professores são super atenciosos!"</p>
-                <div class="author-info"><h4>Maria do Carmo</h4></div>
+                <div class="stars">
+                    <i class="ph-fill ph-star text-yellow"></i>
+                    <i class="ph-fill ph-star text-yellow"></i>
+                    <i class="ph-fill ph-star text-yellow"></i>
+                    <i class="ph-fill ph-star text-yellow"></i>
+                    <i class="ph-fill ph-star text-yellow"></i>
+                </div>
+                <p class="quote">"A estrutura é surreal! Nunca vi equipamentos tão novos na região. O ambiente motiva a gente a não faltar nunca."</p>
+                <div class="user-profile">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Foto Aluna" class="user-img">
+                    <div class="user-info">
+                        <h4>Maria do Carmo</h4>
+                        <span>Aluna há 8 meses</span>
+                    </div>
+                </div>
             </div>
+    
             <div class="testimonial-card">
-                <div class="stars"><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i></div>
-                <p class="quote">"Resultados incríveis em apenas 3 meses de Atlas Prime."</p>
-                <div class="author-info"><h4>Ricardo "Nick"</h4></div>
+                <div class="stars">
+                    <i class="ph-fill ph-star text-yellow"></i>
+                    <i class="ph-fill ph-star text-yellow"></i>
+                    <i class="ph-fill ph-star text-yellow"></i>
+                    <i class="ph-fill ph-star text-yellow"></i>
+                    <i class="ph-fill ph-star text-yellow"></i>
+                </div>
+                <p class="quote">"Comecei no plano Start e mudei para o Prime na mesma semana. As aulas coletivas e a área de Cross são o diferencial."</p>
+                <div class="user-profile">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Foto Aluno" class="user-img">
+                    <div class="user-info">
+                        <h4>Ricardo "Nick"</h4>
+                        <span>Aluno Plano Prime</span>
+                    </div>
+                </div>
+            </div>
+             <div class="testimonial-card">
+                <div class="stars">
+                    <i class="ph-fill ph-star text-yellow"></i>
+                    <i class="ph-fill ph-star text-yellow"></i>
+                    <i class="ph-fill ph-star text-yellow"></i>
+                    <i class="ph-fill ph-star text-yellow"></i>
+                    <i class="ph-fill ph-star text-yellow"></i>
+                </div>
+                <p class="quote">"Treino aqui há 2 anos e não troco por nada. O clima é familiar e os professores realmente ajudam."</p>
+                <div class="user-profile">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Foto Aluno" class="user-img">
+                    <div class="user-info">
+                        <h4>Julia S.</h4>
+                        <span>Aluna Plano Black</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- LOCALIZAÇÃO -->
     <section class="location reveal">
         <h2 class="section-title">ENCONTRE A UNIDADE MAIS PRÓXIMA</h2>
         <div class="search-box">
@@ -283,7 +304,6 @@
         </div>
     </section>
 
-    <!-- RODAPÉ -->
     <footer>
         <div class="social-links">
             <a href="#"><i class="ph ph-instagram-logo"></i></a>
@@ -291,10 +311,9 @@
             <a href="#"><i class="ph ph-youtube-logo"></i></a>
             <a href="#"><i class="ph ph-whatsapp-logo"></i></a>
         </div>
-        <p>© 2024 Atlas Prime - Todos os direitos reservados.</p>
+        <p>© 2026 Atlas Prime - Todos os direitos reservados.</p>
     </footer>
 
-    <!-- MODAL AULA EXPERIMENTAL -->
     <div id="modalFreePass" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal()">&times;</span>
@@ -309,7 +328,6 @@
         </div>
     </div>
 
-    <!-- Ligação ao Ficheiro Javascript -->
     <script src="script.js"></script>
 </body>
 </html>
